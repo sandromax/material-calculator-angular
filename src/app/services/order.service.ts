@@ -5,5 +5,15 @@ import { Injectable } from '@angular/core';
 })
 export class OrderService {
 
-  constructor() { }
+  private orderData: any;
+
+  setOrder(order: any): void {
+    this.orderData = order;
+  }
+
+  getOrder(): any {
+    return this.orderData;
+  }
+
+  // constructor() { }
 }

@@ -1,0 +1,264 @@
+{
+    "types": [
+      {
+        "type": "Material",
+        "categories": [
+          {
+            "name": "DSP",
+            "subcategories": [
+              {
+                "name": "Frame",
+                "pricePerSquareMeter": 30
+              },
+              {
+                "name": "Facade",
+                "pricePerSquareMeter": 50
+              }
+            ]
+          },
+          {
+            "name": "MDF",
+            "subcategories": [
+              {
+                "name": "One_side",
+                "pricePerSquareMeter": 60
+              },
+              {
+                "name": "Two_side",
+                "pricePerSquareMeter": 80
+              },
+              {
+                "name": "Painted",
+                "pricePerSquareMeter": 100
+              },
+              {
+                "name": "Veneer",
+                "pricePerSquareMeter": 80
+              }
+            ]
+          },
+          {
+            "name": "Wood",
+            "subcategories": [
+              {
+                "name": "20мм",
+                "pricePerSquareMeter": 80
+              },
+              {
+                "name": "30мм",
+                "pricePerSquareMeter": 90
+              },
+              {
+                "name": "40мм",
+                "pricePerSquareMeter": 100
+              },
+              {
+                "name": "50мм",
+                "pricePerSquareMeter": 120
+              }
+            ]
+          },
+          {
+            "name": "Tabletop",
+            "subcategories": [
+              {
+                "name": "Egger",
+                "pricePerSquareMeter": 35
+              }
+            ]
+          },
+          {
+            "name": "DVP",
+            "subcategories": [
+              {
+                "name": "3мм",
+                "pricePerSquareMeter": 5
+              }
+            ]
+          },
+          {
+            "name": "Frame",
+            "subcategories": [
+              {
+                "name": "Aluminum_with_glass",
+                "pricePerSquareMeter": 70
+              }
+            ]
+          },
+          {
+            "name": "Mirror",
+            "subcategories": [
+              {
+                "name": "4мм",
+                "pricePerSquareMeter": 30
+              }
+            ]
+          },
+          {
+            "name": "Other",
+            "pricePerSquareMeter": 30
+          }
+        ]
+      },
+      {
+        "type": "Hardware",
+        "categories": [
+          {
+            "name": "Hinges",
+            "subcategories": [
+              {
+                "name": "Intermat",
+                "pricePerPiece": 5
+              },
+              {
+                "name": "Inner",
+                "pricePerPiece": 6
+              },
+              {
+                "name": "Crocodile",
+                "pricePerPiece": 15
+              }
+            ]
+          },
+          {
+            "name": "Runner",
+            "subcategories": [
+              {
+                "name": "Quadro",
+                "pricePerPiece": 50
+              },
+              {
+                "name": "Push",
+                "pricePerPiece": 60
+              },
+              {
+                "name": "Blum",
+                "pricePerPiece": 50
+              },
+              {
+                "name": "Rolling",
+                "pricePerPiece": 20
+              },
+              {
+                "name": "Rolling Push",
+                "pricePerPiece": 25
+              }
+            ]
+          },
+          {
+            "name": "Bottle handler",
+            "subcategories": [
+              {
+                "name": "150_mm",
+                "pricePerPiece": 60
+              },
+              {
+                "name": "200_mm",
+                "pricePerPiece": 80
+              },
+              {
+                "name": "300_mm",
+                "pricePerPiece": 100
+              }
+            ]
+          },
+          {
+            "name": "Garbage",
+            "subcategories": [
+              {
+                "name": "Model_1",
+                "pricePerPiece": 60
+              },
+              {
+                "name": "Model_2",
+                "pricePerPiece": 80
+              },
+              {
+                "name": "Model_3",
+                "pricePerPiece": 100
+              }
+            ]
+          },
+          {
+            "name": "Handle",
+            "subcategories": [
+              {
+                "name": "Model_1",
+                "pricePerPiece": 10
+              },
+              {
+                "name": "Model_2",
+                "pricePerPiece": 15
+              },
+              {
+                "name": "Model_3",
+                "pricePerPiece": 20
+              },
+              {
+                "name": "Model_4",
+                "pricePerPiece": 20
+              }
+            ]
+          },
+          {
+            "name": "Hood",
+            "subcategories": [
+              {
+                "name": "Standard",
+                "pricePerPiece": 70
+              }
+            ]
+          },
+          {
+            "name": "Legs",
+            "subcategories": [
+              {
+                "name": "Plastic",
+                "pricePerPiece": 3
+              },
+              {
+                "name": "Metal",
+                "pricePerPiece": 6
+              }
+            ]
+          },
+          {
+            "name": "Push",
+            "subcategories": [
+              {
+                "name": "Small",
+                "pricePerPiece": 5
+              }
+            ]
+          },
+          {
+            "name": "Grille",
+            "subcategories": [
+              {
+                "name": "Normal",
+                "pricePerPiece": 10
+              }
+            ]
+          },
+          {
+            "name": "LED",
+            "subcategories": [
+              {
+                "name": "5_m",
+                "pricePerPiece": 120
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "Transport",
+        "pricePerKilometer": 10
+      },
+      {
+        "type": "Work",
+        "pricePerDay": 150
+      }
+    ]
+  }
+  
