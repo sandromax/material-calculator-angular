@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { OrderService } from '../../services/order.service';
+import { CalculationService } from '../../services/calculation.service';
 import { PdfService } from '../../services/pdf.service';
 
 @Component({
@@ -13,15 +14,25 @@ import { PdfService } from '../../services/pdf.service';
 export class CalculationResultComponent {
   order: any;
   totalCost: number = 0;
+  orderDetails: any[] = [];
 
   constructor(
     private orderService: OrderService,
+    private calculationService: CalculationService,
     private pdfService: PdfService
   ) {}
 
+  // ngOnInit(): void {
+  //   this.order = this.orderService.getOrder(); // отримуємо збережене замовлення
+  //   this.calculateTotal(); // розраховуємо загальну вартість
+  // }
   ngOnInit(): void {
-    this.order = this.orderService.getOrder(); // отримуємо збережене замовлення
-    this.calculateTotal(); // розраховуємо загальну вартість
+    this.order = this.orderService.getOrder(); // Отримуємо збережене замовлення
+    if (this.order) {
+      const result = this.calculationService.calculateOrder(this.order);
+      this.totalCost = result.totalCost;
+      this.orderDetails = result.details;
+    }
   }
 
   calculateTotal() {
@@ -31,8 +42,8 @@ export class CalculationResultComponent {
     });
   }
 
-  downloadPdf() {
-    this.pdfService.generatePdf(this.order, this.totalCost); // генеруємо PDF
-  }
+  // downloadPdf() {
+  //   this.pdfService.generatePdf(this.order, this.totalCost); // генеруємо PDF
+  // }
 
 }
