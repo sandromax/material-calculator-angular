@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MaterialsService } from '../../services/materials.service';
 import { OrderService } from '../../services/order.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-order-form',
@@ -14,19 +15,20 @@ import { OrderService } from '../../services/order.service';
 })
 export class OrderFormComponent implements OnInit {
   orderForm: FormGroup;
-  materialsData: any; // Змінна для зберігання даних з materials.json
-  availableCategories: any[] = []; // Доступні категорії для вибраного типу
-  availableSubcategories: any[] = []; // Доступні підкатегорії для вибраної категорії
+  materialsData: any;
+  availableCategories: any[] = [];
+  availableSubcategories: any[] = [];
 
   constructor(
     private fb: FormBuilder,
     private materialsService: MaterialsService,
-    private orderService: OrderService
+    private orderService: OrderService,
+    private router: Router // Інжекція Router
   ) {
     this.orderForm = this.fb.group({
       items: this.fb.array([]),
     });
-    this.addItem(); // Додаємо початковий елемент форми
+    this.addItem();
   }
 
   ngOnInit(): void {
@@ -73,12 +75,13 @@ export class OrderFormComponent implements OnInit {
 
   onSubmit(): void {
     if (this.orderForm.valid) {
-      this.orderService.setOrder(this.orderForm.value); // зберігаємо дані замовлення
+      this.orderService.setOrder(this.orderForm.value);
+      this.router.navigate(['/result']);
     }
   }
 
   private updateCategories(itemGroup: FormGroup, selectedType: string): void {
-    // Якщо обрано Transport або Work, робимо поля category і subcategory недоступними
+    // If "Transport" or "Work" is selected, make the "category" and "subcategory" fields disabled.
     if (selectedType === 'Transport' || selectedType === 'Work') {
       itemGroup.get('category')?.disable();
       itemGroup.get('subcategory')?.disable();
@@ -89,7 +92,7 @@ export class OrderFormComponent implements OnInit {
       return;
     }
 
-    // В іншому випадку робимо поля доступними і заповнюємо категорії на основі вибраного типу
+    // Otherwise, make the fields enabled and populate the categories based on the selected type.
     itemGroup.get('category')?.enable();
     itemGroup.get('subcategory')?.disable();
     itemGroup.get('subcategory')?.setValue('');
@@ -99,7 +102,6 @@ export class OrderFormComponent implements OnInit {
   }
 
   private updateSubcategories(itemGroup: FormGroup, selectedCategory: string): void {
-    // Знаходимо підкатегорії для вибраної категорії
     const selectedType = itemGroup.get('materialType')?.value;
     const typeData = this.materialsData.types.find((type: any) => type.type === selectedType);
     const categoryData = typeData?.categories.find((cat: any) => cat.name === selectedCategory);
@@ -113,57 +115,3 @@ export class OrderFormComponent implements OnInit {
     }
   }
 }
-
-
-// import { Component } from '@angular/core';
-// import { ReactiveFormsModule, FormBuilder, FormGroup, Validators, FormArray } from '@angular/forms';
-// import { CommonModule } from '@angular/common';
-// import { MaterialsService } from '../../services/materials.service';
-// import { OrderService } from '../../services/order.service';
-//
-// @Component({
-//   selector: 'app-order-form',
-//   standalone: true,
-//   templateUrl: './order-form.component.html',
-//   styleUrl: './order-form.component.css',
-//   imports: [ReactiveFormsModule, CommonModule],
-// })
-// export class OrderFormComponent {
-//   orderForm: FormGroup;
-//
-//   constructor(
-//     private fb: FormBuilder,
-//     private materialsService: MaterialsService,
-//     private orderService: OrderService
-//   ) {
-//     this.orderForm = this.fb.group({
-//       items: this.fb.array([]),
-//     });
-//     this.addItem(); // Додаємо початковий елемент форми
-//   }
-//
-//   get items() {
-//     return this.orderForm.get('items') as FormArray;
-//   }
-//
-//   addItem() {
-//     this.items.push(
-//       this.fb.group({
-//         materialType: ['', Validators.required],
-//         category: ['', Validators.required],
-//         subcategory: ['', Validators.required],
-//         quantity: ['', [Validators.required, Validators.min(1)]],
-//       })
-//     );
-//   }
-//
-//   removeItem(index: number) {
-//     this.items.removeAt(index);
-//   }
-//
-//   onSubmit() {
-//     if (this.orderForm.valid) {
-//       this.orderService.setOrder(this.orderForm.value); // зберігаємо дані замовлення
-//     }
-//   }
-// }
