@@ -4,6 +4,8 @@
   <h2>Calculation Result</h2>
   <button (click)="onCalculate()">Calculate</button> <!-- Кнопка для обчислення -->
 
+  <button *ngIf="calculated" (click)="generatePdf()">Download PDF</button> <!-- Кнопка для завантаження PDF -->
+
   <div *ngIf="calculated">
     <p>Total Cost: {{ totalCost | currency }}</p>
 

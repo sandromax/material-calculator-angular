@@ -4,6 +4,8 @@ import { OrderService } from '../../services/order.service';
 import { CalculationService } from '../../services/calculation.service';
 import { PdfService } from '../../services/pdf.service';
 import { ActivatedRoute } from '@angular/router'; // Доданий імпорт ActivatedRoute
+import jsPDF from 'jspdf'; // Імпорт jsPDF
+import 'jspdf-autotable'; // Імпорт плагіна для таблиць
 
 @Component({
   selector: 'app-calculation-result',
@@ -52,8 +54,33 @@ export class CalculationResultComponent {
     });
   }
 
-  // downloadPdf() {
-  //   this.pdfService.generatePdf(this.order, this.totalCost); // генеруємо PDF
-  // }
+  generatePdf(): void {
+    const doc = new jsPDF();
 
-}
+    // Додаємо заголовок
+    doc.text('Calculation Result', 14, 10);
+
+    // Додаємо таблицю з деталями замовлення
+    const columns = ['Material Type', 'Category', 'Subcategory', 'Quantity', 'Cost'];
+    const rows = this.orderDetails.map(detail => [
+      detail.materialType,
+      detail.category,
+      detail.subcategory || 'N/A',
+      detail.quantity,
+      detail.cost.toFixed(2)
+    ]);
+
+    (doc as any).autoTable({
+      head: [columns],
+      body: rows,
+      startY: 20
+    });
+
+    // Додаємо загальний підсумок
+    doc.text(`Total Cost: ${this.totalCost.toFixed(2)}`, 14, doc.autoTable.previous.finalY + 10);
+
+    // Завантажуємо PDF
+    doc.save('calculation_result.pdf');
+  }
+
+  }
