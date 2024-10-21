@@ -23,7 +23,7 @@ export class OrderFormComponent implements OnInit {
     private fb: FormBuilder,
     private materialsService: MaterialsService,
     private orderService: OrderService,
-    private router: Router // Інжекція Router
+    private router: Router // Injection Router
   ) {
     this.orderForm = this.fb.group({
       items: this.fb.array([]),
@@ -32,7 +32,6 @@ export class OrderFormComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    // Завантажуємо дані з materials.json через сервіс
     this.materialsService.getMaterials().subscribe((data) => {
       this.materialsData = data;
     });

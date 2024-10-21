@@ -1,8 +1,7 @@
-<p>calculation-result works!</p>
 
 <div>
   <h2>Calculation Result</h2>
-  <button (click)="onCalculate()">Calculate</button> <!-- Кнопка для обчислення -->
+  <button (click)="onCalculate()">Calculate</button>
 
   <div *ngIf="calculated">
     <p>Total Cost: {{ totalCost | currency }}</p>

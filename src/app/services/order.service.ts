@@ -14,6 +14,4 @@ export class OrderService {
   getOrder(): any {
     return this.orderData;
   }
-
-  // constructor() { }
 }
