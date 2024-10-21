@@ -25,34 +25,6 @@ export class CalculationResultComponent {
     private route: ActivatedRoute, // Інжекція ActivatedRoute
   ) {}
 
-  // ngOnInit(): void {
-  //   this.order = this.orderService.getOrder(); // отримуємо збережене замовлення
-  //   this.calculateTotal(); // розраховуємо загальну вартість
-  // }
-  // ngOnInit(): void {
-  //   this.order = this.orderService.getOrder(); // Отримуємо збережене замовлення
-  //   if (this.order) {
-  //     const result = this.calculationService.calculateOrder(this.order);
-  //     this.totalCost = result.totalCost;
-  //     this.orderDetails = result.details;
-  //   }
-  // }
-
-  // ngOnInit(): void {
-  //   // Отримуємо дані з queryParams
-  //   this.route.queryParams.subscribe(params => {
-  //     const orderData = params['order'];
-  //     if (orderData) {
-  //       this.order = JSON.parse(orderData);
-  //
-  //       // Виконуємо розрахунок на основі отриманих даних
-  //       const result = this.calculationService.calculateOrder(this.order);
-  //       this.totalCost = result.totalCost;
-  //       this.orderDetails = result.details;
-  //     }
-  //   });
-  // }
-
   ngOnInit(): void {
     // Отримуємо дані з queryParams
     this.route.queryParams.subscribe(params => {
