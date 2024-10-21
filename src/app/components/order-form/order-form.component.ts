@@ -73,10 +73,17 @@ export class OrderFormComponent implements OnInit {
     this.items.removeAt(index);
   }
 
+  // onSubmit(): void {
+  //   if (this.orderForm.valid) {
+  //     this.orderService.setOrder(this.orderForm.value);
+  //     this.router.navigate(['/result']);
+  //   }
+  // }
+
   onSubmit(): void {
     if (this.orderForm.valid) {
-      this.orderService.setOrder(this.orderForm.value);
-      this.router.navigate(['/result']);
+      const order = this.orderForm.value;
+      this.router.navigate(['/result'], { queryParams: { order: JSON.stringify(order) } });
     }
   }
 

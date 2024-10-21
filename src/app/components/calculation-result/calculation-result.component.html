@@ -1,18 +1,38 @@
 <p>calculation-result works!</p>
 
-<div *ngIf="order">
-  <h2>Calculation Result</h2>
-  <p>Total Cost: {{ totalCost | currency }}</p>
+<!--<div *ngIf="order">-->
+<!--  <h2>Calculation Result</h2>-->
+<!--  <p>Total Cost: {{ totalCost | currency }}</p>-->
 
-  <div *ngFor="let detail of orderDetails" class="order-item">
-    <h3>{{ detail.materialType }}</h3>
-    <p>Category: {{ detail.category }}</p>
-    <p *ngIf="detail.subcategory">Subcategory: {{ detail.subcategory }}</p>
-    <p>Quantity: {{ detail.quantity }}</p>
-    <p>Cost: {{ detail.cost | currency }}</p>
+<!--  <div *ngFor="let detail of orderDetails" class="order-item">-->
+<!--    <h3>{{ detail.materialType }}</h3>-->
+<!--    <p>Category: {{ detail.category }}</p>-->
+<!--    <p *ngIf="detail.subcategory">Subcategory: {{ detail.subcategory }}</p>-->
+<!--    <p>Quantity: {{ detail.quantity }}</p>-->
+<!--    <p>Cost: {{ detail.cost | currency }}</p>-->
+<!--  </div>-->
+<!--</div>-->
+<!--<div *ngIf="!order">-->
+<!--  <p>No order found.</p>-->
+<!--</div>-->
+
+<div>
+  <h2>Calculation Result</h2>
+  <button (click)="onCalculate()">Calculate</button> <!-- Кнопка для обчислення -->
+
+  <div *ngIf="calculated">
+    <p>Total Cost: {{ totalCost | currency }}</p>
+
+    <div *ngFor="let detail of orderDetails" class="order-item">
+      <h3>{{ detail.materialType }}</h3>
+      <p>Category: {{ detail.category }}</p>
+      <p *ngIf="detail.subcategory">Subcategory: {{ detail.subcategory }}</p>
+      <p>Quantity: {{ detail.quantity }}</p>
+      <p>Cost: {{ detail.cost | currency }}</p>
+    </div>
+  </div>
+
+  <div *ngIf="!calculated">
+    <p>No calculation performed yet.</p>
   </div>
 </div>
-<div *ngIf="!order">
-  <p>No order found.</p>
-</div>
-
