@@ -1,21 +1,26 @@
-
-<div>
+<div fxLayout="column" fxLayoutAlign="center stretch" fxLayoutGap="20px">
   <h2>Calculation Result</h2>
-  <button (click)="onCalculate()">Calculate</button>
+  <button mat-raised-button color="primary" (click)="onCalculate()">Calculate</button>
 
-  <div *ngIf="calculated">
+  <div *ngIf="calculated; else noCalculation" fxLayout="column" fxLayoutGap="20px">
     <p>Total Cost: {{ totalCost | currency }}</p>
 
-    <div *ngFor="let detail of orderDetails" class="order-item">
-      <h3>{{ detail.materialType }}</h3>
-      <p>Category: {{ detail.category }}</p>
-      <p *ngIf="detail.subcategory">Subcategory: {{ detail.subcategory }}</p>
-      <p>Quantity: {{ detail.quantity }}</p>
-      <p>Cost: {{ detail.cost | currency }}</p>
+    <div fxLayout="row wrap" fxLayoutGap="20px" fxLayoutAlign="start stretch">
+      <mat-card *ngFor="let detail of orderDetails" class="order-item" fxFlex="1 1 calc(33% - 20px)">
+        <mat-card-header>
+          <mat-card-title>{{ detail.materialType }}</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <p>Category: {{ detail.category }}</p>
+          <p *ngIf="detail.subcategory">Subcategory: {{ detail.subcategory }}</p>
+          <p>Quantity: {{ detail.quantity }}</p>
+          <p>Cost: {{ detail.cost | currency }}</p>
+        </mat-card-content>
+      </mat-card>
     </div>
   </div>
 
-  <div *ngIf="!calculated">
+  <ng-template #noCalculation>
     <p>No calculation performed yet.</p>
-  </div>
+  </ng-template>
 </div>

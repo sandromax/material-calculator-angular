@@ -5,13 +5,26 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MaterialsService } from '../../services/materials.service';
 import { OrderService } from '../../services/order.service';
 import { Router } from '@angular/router';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatSelectModule } from '@angular/material/select';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+
 
 @Component({
   selector: 'app-order-form',
   standalone: true,
   templateUrl: './order-form.component.html',
   styleUrls: ['./order-form.component.css'],
-  imports: [ReactiveFormsModule, CommonModule],
+  imports: [
+    MatInputModule,
+    MatSelectModule,
+    MatButtonModule,
+    MatIconModule,
+    MatFormFieldModule,
+    ReactiveFormsModule,
+    CommonModule],
 })
 export class OrderFormComponent implements OnInit {
   orderForm: FormGroup;

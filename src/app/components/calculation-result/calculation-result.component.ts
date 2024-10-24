@@ -4,11 +4,18 @@ import { OrderService } from '../../services/order.service';
 import { CalculationService } from '../../services/calculation.service';
 import { PdfService } from '../../services/pdf.service';
 import { ActivatedRoute } from '@angular/router';
+import { MatCardModule } from '@angular/material/card';
+import { MatButtonModule } from '@angular/material/button';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 @Component({
   selector: 'app-calculation-result',
   standalone: true,
-  imports: [CommonModule],
+  imports: [
+    CommonModule,
+    MatCardModule,
+    MatButtonModule,
+    FlexLayoutModule],
   templateUrl: './calculation-result.component.html',
   styleUrl: './calculation-result.component.css'
 })
