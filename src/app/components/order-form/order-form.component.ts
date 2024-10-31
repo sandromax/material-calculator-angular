@@ -60,19 +60,17 @@ export class OrderFormComponent implements OnInit {
       category: [{ value: '', disabled: true }, Validators.required],
       subcategory: [{ value: '', disabled: true }, Validators.required],
       quantity: ['', [Validators.required, Validators.min(1)]],
+      availableCategories: [[]], // Індивідуальні категорії для кожного елемента
+      availableSubcategories: [[]] // Індивідуальні підкатегорії для кожного елемента
     });
 
-    // Dynamically update the lists of categories and subcategories when the `materialType` changes.
     itemGroup.get('materialType')?.valueChanges.subscribe((selectedType) => {
-      // this.updateCategories(itemGroup, selectedType);
       if (selectedType !== null) {
         this.updateCategories(itemGroup, selectedType);
       }
     });
 
-    // Dynamically update the list of subcategories when the `category` changes.
     itemGroup.get('category')?.valueChanges.subscribe((selectedCategory) => {
-      // this.updateSubcategories(itemGroup, selectedCategory);
       if (selectedCategory !== null) {
         this.updateSubcategories(itemGroup, selectedCategory);
       }
@@ -93,33 +91,34 @@ export class OrderFormComponent implements OnInit {
   }
 
   private updateCategories(itemGroup: FormGroup, selectedType: string): void {
-    // If "Transport" or "Work" is selected, make the "category" and "subcategory" fields disabled.
     if (selectedType === 'Transport' || selectedType === 'Work') {
       itemGroup.get('category')?.disable();
       itemGroup.get('subcategory')?.disable();
       itemGroup.get('category')?.setValue('');
       itemGroup.get('subcategory')?.setValue('');
-      this.availableCategories = [];
-      this.availableSubcategories = [];
+      itemGroup.patchValue({ availableCategories: [], availableSubcategories: [] });
       return;
     }
 
-    // Otherwise, make the fields enabled and populate the categories based on the selected type.
     itemGroup.get('category')?.enable();
     itemGroup.get('subcategory')?.disable();
     itemGroup.get('subcategory')?.setValue('');
-    this.availableCategories = this.materialsData.types
+
+    const categories = this.materialsData.types
       .find((type: any) => type.type === selectedType)?.categories || [];
-    this.availableSubcategories = [];
+
+    itemGroup.patchValue({ availableCategories: categories, availableSubcategories: [] });
   }
 
   private updateSubcategories(itemGroup: FormGroup, selectedCategory: string): void {
     const selectedType = itemGroup.get('materialType')?.value;
     const typeData = this.materialsData.types.find((type: any) => type.type === selectedType);
     const categoryData = typeData?.categories.find((cat: any) => cat.name === selectedCategory);
-    this.availableSubcategories = categoryData?.subcategories || [];
 
-    if (this.availableSubcategories.length > 0) {
+    const subcategories = categoryData?.subcategories || [];
+    itemGroup.patchValue({ availableSubcategories: subcategories });
+
+    if (subcategories.length > 0) {
       itemGroup.get('subcategory')?.enable();
     } else {
       itemGroup.get('subcategory')?.disable();
