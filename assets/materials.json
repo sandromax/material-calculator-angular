@@ -7,12 +7,12 @@
             "name": "DSP",
             "subcategories": [
               {
-                "name": "Frame",
-                "pricePerSquareMeter": 30
+                "name": "Frame (Корпусной)",
+                "pricePerSquareMeter": 45
               },
               {
                 "name": "Facade",
-                "pricePerSquareMeter": 50
+                "pricePerSquareMeter": 45
               }
             ]
           },
@@ -20,50 +20,54 @@
             "name": "MDF",
             "subcategories": [
               {
-                "name": "One_side",
-                "pricePerSquareMeter": 60
-              },
-              {
-                "name": "Two_side",
+                "name": "One_side (Односторонний)",
                 "pricePerSquareMeter": 80
               },
               {
-                "name": "Painted",
+                "name": "Two_side (Двухсторонний)",
                 "pricePerSquareMeter": 100
               },
               {
-                "name": "Veneer",
-                "pricePerSquareMeter": 80
+                "name": "Painted_One_side (Краска одностор.)",
+                "pricePerSquareMeter": 150
+              },
+              {
+                "name": "Painted_Two_side (Краска двухстор.)",
+                "pricePerSquareMeter": 250
+              },
+              {
+                "name": "Veneer (Шпон)",
+                "pricePerSquareMeter": 200
               }
             ]
           },
           {
-            "name": "Wood",
+            "name": "Wood (Дерево)",
             "subcategories": [
               {
                 "name": "20мм",
-                "pricePerSquareMeter": 80
+                "pricePerSquareMeter": 150
               },
               {
                 "name": "30мм",
-                "pricePerSquareMeter": 90
+                "pricePerSquareMeter": 200
               },
               {
                 "name": "40мм",
-                "pricePerSquareMeter": 100
+                "pricePerSquareMeter": 250
               },
               {
                 "name": "50мм",
-                "pricePerSquareMeter": 120
+                "pricePerSquareMeter": 300
               }
             ]
           },
           {
-            "name": "Tabletop",
+            "name": "Tabletop (Столешница)",
             "subcategories": [
               {
                 "name": "Egger",
-                "pricePerSquareMeter": 35
+                "pricePerSquareMeter": 40
               }
             ]
           },
@@ -72,12 +76,12 @@
             "subcategories": [
               {
                 "name": "3мм",
-                "pricePerSquareMeter": 5
+                "pricePerSquareMeter": 20
               }
             ]
           },
           {
-            "name": "Frame",
+            "name": "Frame (Рамка)",
             "subcategories": [
               {
                 "name": "Aluminum_with_glass",
@@ -86,101 +90,101 @@
             ]
           },
           {
-            "name": "Mirror",
+            "name": "Mirror (Зеркало)",
             "subcategories": [
               {
                 "name": "4мм",
-                "pricePerSquareMeter": 30
+                "pricePerSquareMeter": 40
               }
             ]
           },
           {
-            "name": "Other",
-            "pricePerSquareMeter": 30
+            "name": "Other (Другое)",
+            "pricePerSquareMeter": 10
           }
         ]
       },
       {
-        "type": "Hardware",
+        "type": "Hardware (Фурнитура)",
         "categories": [
           {
-            "name": "Hinges",
+            "name": "Hinges (Петли)",
             "subcategories": [
               {
                 "name": "Intermat",
                 "pricePerPiece": 5
               },
               {
-                "name": "Inner",
-                "pricePerPiece": 6
+                "name": "Inner (Внутренние)",
+                "pricePerPiece": 5
               },
               {
                 "name": "Crocodile",
+                "pricePerPiece": 10
+              }
+            ]
+          },
+          {
+            "name": "Runner (Направляющие)",
+            "subcategories": [
+              {
+                "name": "Quadro",
+                "pricePerPiece": 30
+              },
+              {
+                "name": "Push",
+                "pricePerPiece": 35
+              },
+              {
+                "name": "Blum",
+                "pricePerPiece": 35
+              },
+              {
+                "name": "Rolling (ШариковЬІе)",
+                "pricePerPiece": 15
+              },
+              {
+                "name": "Rolling Push (ШариковЬІе Пуш)",
                 "pricePerPiece": 15
               }
             ]
           },
           {
-            "name": "Runner",
+            "name": "Bottle handler (БутЬІлочница)",
             "subcategories": [
               {
-                "name": "Quadro",
+                "name": "150mm",
                 "pricePerPiece": 50
               },
               {
-                "name": "Push",
+                "name": "200mm",
                 "pricePerPiece": 60
               },
               {
-                "name": "Blum",
-                "pricePerPiece": 50
-              },
-              {
-                "name": "Rolling",
-                "pricePerPiece": 20
-              },
-              {
-                "name": "Rolling Push",
-                "pricePerPiece": 25
-              }
-            ]
-          },
-          {
-            "name": "Bottle handler",
-            "subcategories": [
-              {
-                "name": "150_mm",
-                "pricePerPiece": 60
-              },
-              {
-                "name": "200_mm",
+                "name": "300mm",
                 "pricePerPiece": 80
-              },
-              {
-                "name": "300_mm",
-                "pricePerPiece": 100
               }
             ]
           },
           {
-            "name": "Garbage",
+            "name": "Garbage (Ведро мусорное)",
             "subcategories": [
               {
                 "name": "Model_1",
-                "pricePerPiece": 60
+                "pricePerPiece": 40
               },
               {
                 "name": "Model_2",
-                "pricePerPiece": 80
+                "pricePerPiece": 70
               },
               {
                 "name": "Model_3",
-                "pricePerPiece": 100
+                "pricePerPiece": 120
               }
             ]
           },
           {
-            "name": "Handle",
+            "name": "Handle (Ручка)",
             "subcategories": [
               {
                 "name": "Model_1",
@@ -196,29 +200,29 @@
               },
               {
                 "name": "Model_4",
-                "pricePerPiece": 20
+                "pricePerPiece": 25
               }
             ]
           },
           {
-            "name": "Hood",
+            "name": "Hood (ВЬІтяжка)",
             "subcategories": [
               {
                 "name": "Standard",
-                "pricePerPiece": 70
+                "pricePerPiece": 150
               }
             ]
           },
           {
-            "name": "Legs",
+            "name": "Legs (Ножки)",
             "subcategories": [
               {
                 "name": "Plastic",
-                "pricePerPiece": 3
+                "pricePerPiece": 1
               },
               {
                 "name": "Metal",
-                "pricePerPiece": 6
+                "pricePerPiece": 5
               }
             ]
           },
@@ -226,17 +230,17 @@
             "name": "Push",
             "subcategories": [
               {
-                "name": "Small",
+                "name": "Small (Маленький)",
                 "pricePerPiece": 5
               }
             ]
           },
           {
-            "name": "Grille",
+            "name": "Grille (Решетка)",
             "subcategories": [
               {
-                "name": "Normal",
-                "pricePerPiece": 10
+                "name": "Normal (ОбЬІчная)",
+                "pricePerPiece": 20
               }
             ]
           },
@@ -244,21 +248,20 @@
             "name": "LED",
             "subcategories": [
               {
-                "name": "5_m",
-                "pricePerPiece": 120
+                "name": "5m",
+                "pricePerPiece": 70
               }
             ]
           }
         ]
       },
       {
-        "type": "Transport",
+        "type": "Transport за кв.м.",
         "pricePerKilometer": 10
       },
       {
-        "type": "Work",
-        "pricePerDay": 150
+        "type": "Work (Рабочий день)",
+        "pricePerDay": 200
       }
     ]
   }
-  
