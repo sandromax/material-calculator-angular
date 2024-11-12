@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { HttpClient } from '@angular/common/http';
+import { provideHttpClient, HttpClient } from '@angular/common/http';
 import { TranslateLoader, TranslateModule, TranslateService } from '@ngx-translate/core';
 import { HttpLoaderFactory } from './translate-loader';
 
@@ -11,7 +11,21 @@ import { HttpLoaderFactory } from './translate-loader';
     TranslateModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
+  // providers: [
+  //   {
+  //     provide: TranslateLoader,
+  //     useFactory: HttpLoaderFactory,
+  //     deps: [HttpClient]
+  //   },
+  //   TranslateService
+  // ]
+  // providers: [
+  //   provideHttpClient(),
+  //   provideTranslateLoader(HttpLoaderFactory),
+  //   TranslateService
+  // ]
   providers: [
+    provideHttpClient(),
     {
       provide: TranslateLoader,
       useFactory: HttpLoaderFactory,
