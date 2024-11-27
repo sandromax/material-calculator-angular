@@ -3,13 +3,13 @@ import { FormBuilder, FormGroup, Validators, FormArray } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MaterialsService } from '../../services/materials.service';
-import { OrderService } from '../../services/order.service';
 import { Router } from '@angular/router';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
+import {TranslatePipe} from '@ngx-translate/core';
 
 
 @Component({
@@ -24,7 +24,9 @@ import { MatIconModule } from '@angular/material/icon';
     MatIconModule,
     MatFormFieldModule,
     ReactiveFormsModule,
-    CommonModule],
+    CommonModule,
+    TranslatePipe
+  ],
 })
 export class OrderFormComponent implements OnInit {
   orderForm: FormGroup;
@@ -35,8 +37,7 @@ export class OrderFormComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private materialsService: MaterialsService,
-    private orderService: OrderService,
-    private router: Router // Injection Router
+    private router: Router,
   ) {
     this.orderForm = this.fb.group({
       items: this.fb.array([]),
@@ -60,8 +61,8 @@ export class OrderFormComponent implements OnInit {
       category: [{ value: '', disabled: true }, Validators.required],
       subcategory: [{ value: '', disabled: true }, Validators.required],
       quantity: ['', [Validators.required, Validators.min(1)]],
-      availableCategories: [[]], // Індивідуальні категорії для кожного елемента
-      availableSubcategories: [[]] // Індивідуальні підкатегорії для кожного елемента
+      availableCategories: [[]], // Individual categories for each item
+      availableSubcategories: [[]] // Individual subcategories for each item
     });
 
     itemGroup.get('materialType')?.valueChanges.subscribe((selectedType) => {

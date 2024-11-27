@@ -1,17 +1,17 @@
-<h2 style="padding: 80px;" fxLayoutAlign="start center">Domnule Nikolay, vă rog să alegeți materialele!</h2>
+<h2 style="padding: 80px;" fxLayoutAlign="start center">{{'TITLE' | translate}}</h2>
 
 <form [formGroup]="orderForm" (ngSubmit)="onSubmit()" style="padding: 0px 200px 200px 200px;">
   <div formArrayName="items">
     <div *ngFor="let item of items.controls; let i = index" [formGroupName]="i" class="item-group"
          fxLayout="row wrap" fxLayoutGap="20px" fxLayoutAlign="start center" style="margin-bottom: 20px;">
 
-      <!-- Поле вибору Material Type -->
+      <!-- Material type selection field -->
       <div fxFlex="1 1 250px" style="min-width: 250px;">
         <mat-form-field appearance="fill" style="width: 100%;">
-          <mat-label>Material Type</mat-label>
+          <mat-label>{{'TYPE' | translate}}</mat-label>
           <mat-select id="materialType-{{ i }}" formControlName="materialType">
-            <mat-option value="">Select Material Type</mat-option>
-            <mat-option *ngFor="let type of materialsData?.types" [value]="type.type">{{ type.type }}</mat-option>
+            <mat-option value="">{{'SELECT_TYPE' | translate}}</mat-option>
+            <mat-option *ngFor="let type of materialsData?.types" [value]="type.type">{{ type.type | translate}}</mat-option>
           </mat-select>
           <mat-error *ngIf="item.get('materialType')?.hasError('required')">
             Material Type is required
@@ -19,13 +19,13 @@
         </mat-form-field>
       </div>
 
-      <!-- Поле вибору Category -->
+      <!-- Category selection field -->
       <div fxFlex="1 1 250px" style="min-width: 250px;">
         <mat-form-field appearance="fill" style="width: 100%;">
-          <mat-label>Category</mat-label>
+          <mat-label>{{'CATEGORY' | translate}}</mat-label>
           <mat-select id="category-{{ i }}" formControlName="category">
-            <mat-option value="">Select Category</mat-option>
-            <mat-option *ngFor="let category of item.get('availableCategories')?.value" [value]="category.name">{{ category.name }}</mat-option>
+            <mat-option value="">{{'SELECT_CATEGORY' | translate}}</mat-option>
+            <mat-option *ngFor="let category of item.get('availableCategories')?.value" [value]="category.name">{{ category.name | translate}}</mat-option>
           </mat-select>
           <mat-error *ngIf="item.get('category')?.hasError('required')">
             Category is required
@@ -33,13 +33,13 @@
         </mat-form-field>
       </div>
 
-      <!-- Поле вибору Subcategory -->
+      <!-- Subcategory selection field -->
       <div fxFlex="1 1 250px" style="min-width: 250px;">
         <mat-form-field appearance="fill" style="width: 100%;">
-          <mat-label>Subcategory</mat-label>
+          <mat-label>{{'SUBCATEGORY' | translate}}</mat-label>
           <mat-select id="subcategory-{{ i }}" formControlName="subcategory">
-            <mat-option value="">Select Subcategory</mat-option>
-            <mat-option *ngFor="let subcategory of item.get('availableSubcategories')?.value" [value]="subcategory.name">{{ subcategory.name }}</mat-option>
+            <mat-option value="">{{'SELECT_SUBCATEGORY' | translate}}</mat-option>
+            <mat-option *ngFor="let subcategory of item.get('availableSubcategories')?.value" [value]="subcategory.name">{{ subcategory.name | translate}}</mat-option>
           </mat-select>
           <mat-error *ngIf="item.get('subcategory')?.hasError('required')">
             Subcategory is required
@@ -47,26 +47,25 @@
         </mat-form-field>
       </div>
 
-      <!-- Поле вводу Quantity -->
+      <!-- Quantity field -->
       <div fxFlex="1 1 150px" style="min-width: 150px;">
         <mat-form-field appearance="fill" style="width: 100%;">
-          <mat-label>Quantity</mat-label>
+          <mat-label>{{'QUANTITY' | translate}}</mat-label>
           <input matInput id="quantity-{{ i }}" type="number" formControlName="quantity" placeholder="Enter quantity" min="1" />
           <mat-error *ngIf="item.get('quantity')?.hasError('required')">
-            Quantity is required
+            {{'Quantity_is_required' | translate}}
           </mat-error>
           <mat-error *ngIf="item.get('quantity')?.hasError('min')">
-            Minimum quantity is 1
+            {{'Minimum_quantity_is_1' | translate}}
           </mat-error>
         </mat-form-field>
       </div>
     </div>
   </div>
 
-  <!-- Кнопки Add, Remove і Submit, вирівняні по правому краю -->
   <div fxLayout="row" fxLayoutAlign="end center" fxLayoutGap="10px" fxFlex="100%" style="margin-top: 20px;">
-    <button mat-raised-button color="warn" type="button" (click)="removeItem(items.length - 1)">Remove</button>
-    <button mat-raised-button color="primary" type="button" (click)="addItem()">Add Item</button>
-    <button mat-raised-button color="accent" type="submit" [disabled]="orderForm.invalid">Submit</button>
+    <button mat-raised-button color="warn" type="button" (click)="removeItem(items.length - 1)">{{ 'REMOVE' | translate }}</button>
+    <button mat-raised-button color="primary" type="button" (click)="addItem()">{{ 'ADD_ITEM' | translate }}</button>
+    <button mat-raised-button color="accent" type="submit" [disabled]="orderForm.invalid">{{ 'SUBMIT' | translate }}</button>
   </div>
 </form>
