@@ -8,11 +8,11 @@
             "subcategories": [
               {
                 "name": "Frame",
-                "pricePerSquareMeter": 30
+                "pricePerSquareMeter": 45
               },
               {
                 "name": "Facade",
-                "pricePerSquareMeter": 50
+                "pricePerSquareMeter": 45
               }
             ]
           },
@@ -21,19 +21,23 @@
             "subcategories": [
               {
                 "name": "One_side",
-                "pricePerSquareMeter": 60
+                "pricePerSquareMeter": 80
               },
               {
                 "name": "Two_side",
-                "pricePerSquareMeter": 80
-              },
-              {
-                "name": "Painted",
                 "pricePerSquareMeter": 100
               },
               {
+                "name": "Painted_One_side",
+                "pricePerSquareMeter": 150
+              },
+              {
+                "name": "Painted_Two_side",
+                "pricePerSquareMeter": 250
+              },
+              {
                 "name": "Veneer",
-                "pricePerSquareMeter": 80
+                "pricePerSquareMeter": 200
               }
             ]
           },
@@ -42,19 +46,19 @@
             "subcategories": [
               {
                 "name": "20мм",
-                "pricePerSquareMeter": 80
+                "pricePerSquareMeter": 150
               },
               {
                 "name": "30мм",
-                "pricePerSquareMeter": 90
+                "pricePerSquareMeter": 200
               },
               {
                 "name": "40мм",
-                "pricePerSquareMeter": 100
+                "pricePerSquareMeter": 250
               },
               {
                 "name": "50мм",
-                "pricePerSquareMeter": 120
+                "pricePerSquareMeter": 300
               }
             ]
           },
@@ -63,7 +67,7 @@
             "subcategories": [
               {
                 "name": "Egger",
-                "pricePerSquareMeter": 35
+                "pricePerSquareMeter": 40
               }
             ]
           },
@@ -72,7 +76,7 @@
             "subcategories": [
               {
                 "name": "3мм",
-                "pricePerSquareMeter": 5
+                "pricePerSquareMeter": 20
               }
             ]
           },
@@ -90,13 +94,18 @@
             "subcategories": [
               {
                 "name": "4мм",
-                "pricePerSquareMeter": 30
+                "pricePerSquareMeter": 40
               }
             ]
           },
           {
             "name": "Other",
-            "pricePerSquareMeter": 30
+            "subcategories": [
+              {
+                "name": "other",
+                "pricePerSquareMeter": 10
+              }
+            ]
           }
         ]
       },
@@ -112,11 +121,11 @@
               },
               {
                 "name": "Inner",
-                "pricePerPiece": 6
+                "pricePerPiece": 5
               },
               {
                 "name": "Crocodile",
-                "pricePerPiece": 15
+                "pricePerPiece": 10
               }
             ]
           },
@@ -125,23 +134,23 @@
             "subcategories": [
               {
                 "name": "Quadro",
-                "pricePerPiece": 50
+                "pricePerPiece": 30
               },
               {
                 "name": "Push",
-                "pricePerPiece": 60
+                "pricePerPiece": 35
               },
               {
                 "name": "Blum",
-                "pricePerPiece": 50
+                "pricePerPiece": 35
               },
               {
                 "name": "Rolling",
-                "pricePerPiece": 20
+                "pricePerPiece": 15
               },
               {
                 "name": "Rolling Push",
-                "pricePerPiece": 25
+                "pricePerPiece": 15
               }
             ]
           },
@@ -150,15 +159,15 @@
             "subcategories": [
               {
                 "name": "150_mm",
-                "pricePerPiece": 60
+                "pricePerPiece": 50
               },
               {
                 "name": "200_mm",
-                "pricePerPiece": 80
+                "pricePerPiece": 60
               },
               {
                 "name": "300_mm",
-                "pricePerPiece": 100
+                "pricePerPiece": 80
               }
             ]
           },
@@ -167,15 +176,15 @@
             "subcategories": [
               {
                 "name": "Model_1",
-                "pricePerPiece": 60
+                "pricePerPiece": 40
               },
               {
                 "name": "Model_2",
-                "pricePerPiece": 80
+                "pricePerPiece": 70
               },
               {
                 "name": "Model_3",
-                "pricePerPiece": 100
+                "pricePerPiece": 120
               }
             ]
           },
@@ -196,7 +205,7 @@
               },
               {
                 "name": "Model_4",
-                "pricePerPiece": 20
+                "pricePerPiece": 25
               }
             ]
           },
@@ -205,7 +214,7 @@
             "subcategories": [
               {
                 "name": "Standard",
-                "pricePerPiece": 70
+                "pricePerPiece": 150
               }
             ]
           },
@@ -214,11 +223,11 @@
             "subcategories": [
               {
                 "name": "Plastic",
-                "pricePerPiece": 3
+                "pricePerPiece": 1
               },
               {
                 "name": "Metal",
-                "pricePerPiece": 6
+                "pricePerPiece": 5
               }
             ]
           },
@@ -236,7 +245,7 @@
             "subcategories": [
               {
                 "name": "Normal",
-                "pricePerPiece": 10
+                "pricePerPiece": 20
               }
             ]
           },
@@ -245,7 +254,7 @@
             "subcategories": [
               {
                 "name": "5_m",
-                "pricePerPiece": 120
+                "pricePerPiece": 70
               }
             ]
           }
@@ -257,8 +266,7 @@
       },
       {
         "type": "Work",
-        "pricePerDay": 150
+        "pricePerDay": 200
       }
     ]
   }
-  
