@@ -7,6 +7,7 @@ import { ActivatedRoute } from '@angular/router';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import {TranslatePipe} from '@ngx-translate/core';
 
 @Component({
   selector: 'app-calculation-result',
@@ -15,7 +16,9 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     CommonModule,
     MatCardModule,
     MatButtonModule,
-    FlexLayoutModule],
+    FlexLayoutModule,
+    TranslatePipe
+  ],
   templateUrl: './calculation-result.component.html',
   styleUrl: './calculation-result.component.css'
 })

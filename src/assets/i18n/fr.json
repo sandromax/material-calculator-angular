@@ -68,5 +68,10 @@
   "LED": "LED",
   "5_m": "5 m",
   "Transport": "Transport",
-  "Work": "Journée de travail"
+  "Work": "Journée de travail",
+  "RESULTS": "Résultats",
+  "CALCULATE": "Calculer",
+  "TOTAL_COST": "",
+  "COST": "Coût",
+  "NO_CALCULATION_PERFORMED_YET": "Aucun calcul n'a encore été effectué"
 }

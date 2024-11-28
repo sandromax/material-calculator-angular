@@ -68,5 +68,10 @@
   "LED": "LED",
   "5_m": "5 m",
   "Transport": "Transport",
-  "Work": "Zi de lucru"
+  "Work": "Zi de lucru",
+  "RESULTS": "Rezultate",
+  "CALCULATE": "Calcula",
+  "TOTAL_COST": "Costul total",
+  "COST": "Cost",
+  "NO_CALCULATION_PERFORMED_YET": "Nu s-a efectuat încă un calcul"
 }
