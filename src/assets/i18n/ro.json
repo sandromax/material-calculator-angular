@@ -73,5 +73,7 @@
   "CALCULATE": "Calcula",
   "TOTAL_COST": "Costul total",
   "COST": "Cost",
-  "NO_CALCULATION_PERFORMED_YET": "Nu s-a efectuat încă un calcul"
+  "NO_CALCULATION_PERFORMED_YET": "Nu s-a efectuat încă un calcul",
+  "COEFFICIENT": "Coeficient",
+  "ADJUSTED_TOTAL_COST": "Preț total (după factor)"
 }

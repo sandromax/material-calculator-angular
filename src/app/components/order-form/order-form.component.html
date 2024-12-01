@@ -68,6 +68,14 @@
   </div>
 
   <div fxLayout="row" fxLayoutAlign="end center" fxLayoutGap="20px" fxFlex="100%" style="margin-top: 20px;">
+
+    <mat-form-field appearance="fill" style="min-width: 200px;">
+      <mat-label>{{ 'COEFFICIENT' | translate }}</mat-label>
+      <mat-select formControlName="coefficient" required>
+        <mat-option *ngFor="let coeff of coefficients" [value]="coeff">{{ coeff }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+
     <button mat-raised-button color="warn" type="button" style="margin-right: 10px;" (click)="removeItem(items.length - 1)">
       {{ 'REMOVE' | translate }}
     </button>

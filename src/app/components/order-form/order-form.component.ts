@@ -30,6 +30,7 @@ import {TranslatePipe} from '@ngx-translate/core';
 })
 export class OrderFormComponent implements OnInit {
   orderForm: FormGroup;
+  coefficients: number[] = [2.2, 2.5, 2.8, 3.0, 3.5];
   materialsData: any;
   availableCategories: any[] = [];
   availableSubcategories: any[] = [];
@@ -41,6 +42,7 @@ export class OrderFormComponent implements OnInit {
   ) {
     this.orderForm = this.fb.group({
       items: this.fb.array([]),
+      coefficient: [2.2, Validators.required] // Default value
     });
     this.addItem();
   }

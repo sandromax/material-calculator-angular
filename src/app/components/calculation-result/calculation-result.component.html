@@ -4,6 +4,7 @@
 
   <div *ngIf="calculated; else noCalculation" fxLayout="column" fxLayoutGap="20px">
     <p>{{'TOTAL_COST' | translate}}: {{ totalCost | currency }}</p>
+    <p>{{ 'ADJUSTED_TOTAL_COST' | translate }}: {{ adjustedTotalCost | currency }}</p>
 
     <div fxLayout="row wrap" fxLayoutGap="20px" fxLayoutAlign="start stretch">
       <mat-card *ngFor="let detail of orderDetails" class="order-item" fxFlex="1 1 calc(33% - 20px)">

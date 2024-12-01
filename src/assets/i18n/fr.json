@@ -73,5 +73,7 @@
   "CALCULATE": "Calculer",
   "TOTAL_COST": "",
   "COST": "Coût",
-  "NO_CALCULATION_PERFORMED_YET": "Aucun calcul n'a encore été effectué"
+  "NO_CALCULATION_PERFORMED_YET": "Aucun calcul n'a encore été effectué",
+  "COEFFICIENT": "Coefficient",
+  "ADJUSTED_TOTAL_COST": "Prix \u200B\u200Btotal (après facteur)"
 }
