@@ -73,5 +73,7 @@
   "CALCULATE": "Посчитать",
   "TOTAL_COST": "Общая стоимость",
   "COST": "Цена",
-  "NO_CALCULATION_PERFORMED_YET": "Расчет пока не производился"
+  "NO_CALCULATION_PERFORMED_YET": "Расчет пока не производился",
+  "COEFFICIENT": "Коэффициент",
+  "ADJUSTED_TOTAL_COST": "Общая цена (после коэффициента)"
 }
