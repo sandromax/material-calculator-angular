@@ -1,25 +1,25 @@
 <div fxLayout="column" fxLayoutAlign="center stretch" fxLayoutGap="20px">
-  <h2>{{ 'RESULTS' | translate }}</h2>
+<!--  <h2>{{ 'RESULTS' | translate }}</h2>-->
   <button mat-raised-button color="primary" (click)="onCalculate()">{{ 'CALCULATE' | translate }}</button>
 
-  <div *ngIf="calculated; else noCalculation" fxLayout="column" fxLayoutGap="20px">
-    <p>{{'TOTAL_COST' | translate}}: {{ totalCost | currency }}</p>
-    <p>{{ 'ADJUSTED_TOTAL_COST' | translate }}: {{ adjustedTotalCost | currency }}</p>
+<!--  <div *ngIf="calculated; else noCalculation" fxLayout="column" fxLayoutGap="20px">-->
+<!--    <p>{{'TOTAL_COST' | translate}}: {{ totalCost | currency }}</p>-->
+<!--    <p>{{ 'ADJUSTED_TOTAL_COST' | translate }}: {{ adjustedTotalCost | currency }}</p>-->
 
-    <div fxLayout="row wrap" fxLayoutGap="20px" fxLayoutAlign="start stretch">
-      <mat-card *ngFor="let detail of orderDetails" class="order-item" fxFlex="1 1 calc(33% - 20px)">
-        <mat-card-header>
-          <mat-card-title>{{ detail.materialType | translate}}</mat-card-title>
-        </mat-card-header>
-        <mat-card-content>
-          <p>{{ 'CATEGORY' | translate }}: {{ detail.category | translate}}</p>
-          <p *ngIf="detail.subcategory">{{ 'SUBCATEGORY' | translate }}: {{ detail.subcategory | translate}}</p>
-          <p>{{ 'QUANTITY' | translate }}: {{ detail.quantity | translate}}</p>
-          <p>{{ 'COST' | translate }}: {{ detail.cost | currency }}</p>
-        </mat-card-content>
-      </mat-card>
-    </div>
-  </div>
+<!--    <div fxLayout="row wrap" fxLayoutGap="20px" fxLayoutAlign="start stretch">-->
+<!--      <mat-card *ngFor="let detail of orderDetails" class="order-item" fxFlex="1 1 calc(33% - 20px)">-->
+<!--        <mat-card-header>-->
+<!--          <mat-card-title>{{ detail.materialType | translate}}</mat-card-title>-->
+<!--        </mat-card-header>-->
+<!--        <mat-card-content>-->
+<!--          <p>{{ 'CATEGORY' | translate }}: {{ detail.category | translate}}</p>-->
+<!--          <p *ngIf="detail.subcategory">{{ 'SUBCATEGORY' | translate }}: {{ detail.subcategory | translate}}</p>-->
+<!--          <p>{{ 'QUANTITY' | translate }}: {{ detail.quantity | translate}}</p>-->
+<!--          <p>{{ 'COST' | translate }}: {{ detail.cost | currency }}</p>-->
+<!--        </mat-card-content>-->
+<!--      </mat-card>-->
+<!--    </div>-->
+<!--  </div>-->
 
   <ng-template #noCalculation>
     <p>{{ 'NO_CALCULATION_PERFORMED_YET' | translate }}</p>
@@ -77,5 +77,9 @@
         <p><strong>{{ 'ADJUSTED_TOTAL_COST' | translate }}:</strong> {{ adjustedTotalCost | currency:'EUR':'symbol':'1.2-2' }}</p>
       </div>
     </footer>
+  </div>
+
+  <div>
+    <button mat-raised-button color="primary" (click)="downloadPDF()">Завантажити PDF</button>
   </div>
 </div>

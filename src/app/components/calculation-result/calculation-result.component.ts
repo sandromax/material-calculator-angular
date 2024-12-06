@@ -8,6 +8,8 @@ import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import {TranslatePipe} from '@ngx-translate/core';
+import jsPDF from 'jspdf';
+import html2canvas from 'html2canvas';
 
 @Component({
   selector: 'app-calculation-result',
@@ -56,5 +58,42 @@ export class CalculationResultComponent {
       this.orderDetails = result.details;
       this.calculated = true;
     }
+  }
+
+  downloadPDF(): void {
+    const container = document.querySelector('.invoice-container') as HTMLElement;
+
+    if (!container) {
+      console.error('Container not found!');
+      return;
+    }
+
+    // Використання html2canvas для створення зображення контейнера
+    html2canvas(container, { scale: 2 }).then((canvas) => {
+      const imgData = canvas.toDataURL('image/png'); // Отримання зображення у форматі PNG
+
+      const pdf = new jsPDF({
+        orientation: 'portrait', // Орієнтація сторінки
+        unit: 'mm',
+        format: 'a4', // Формат A4
+      });
+
+      const pageWidth = pdf.internal.pageSize.getWidth();
+      const pageHeight = pdf.internal.pageSize.getHeight();
+
+      // Розрахунок масштабування
+      const imgWidth = canvas.width;
+      const imgHeight = canvas.height;
+
+      const ratio = Math.min(pageWidth / imgWidth, pageHeight / imgHeight);
+
+      const imgX = (pageWidth - imgWidth * ratio) / 2;
+      const imgY = 10; // Відступ зверху
+
+      pdf.addImage(imgData, 'PNG', imgX, imgY, imgWidth * ratio, imgHeight * ratio);
+
+      // Збереження PDF
+      pdf.save('invoice.pdf');
+    });
   }
 }

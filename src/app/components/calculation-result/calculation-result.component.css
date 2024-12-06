@@ -7,6 +7,9 @@
   background: #fff;
   flex-direction: column;
   justify-content: space-between;
+  /*border-radius: 8px;*/
+  /*box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);*/
+  /*font-family: Arial, sans-serif;*/
 }
 
 header {
@@ -109,3 +112,24 @@ h2 input[type="text"] {
   font-size: 1rem; /* Match the text size with <strong> */
 }
 
+/*h2 {*/
+/*  display: flex; !* Увімкнути флекс-контейнер *!*/
+/*  align-items: baseline; !* Вирівняти по базовій лінії *!*/
+/*  gap: 10px; !* Проміжок між текстом і інпутом *!*/
+/*  font-size: 2rem; !* Розмір шрифту *!*/
+/*  line-height: 2; !* Достатня висота рядка *!*/
+/*  margin: 0; !* Прибрати зовнішні відступи *!*/
+/*}*/
+
+/*h2 input {*/
+/*  border: none; !* Забрати рамку *!*/
+/*  outline: none; !* Прибрати обведення *!*/
+/*  background: transparent; !* Прозоре тло *!*/
+/*  font-size: inherit; !* Використати розмір шрифту з h2 *!*/
+/*  line-height: inherit; !* Встановити однакову висоту рядка *!*/
+/*  height: 1em; !* Висота, що відповідає тексту *!*/
+/*  padding: 0; !* Прибрати внутрішні відступи *!*/
+/*  margin: 0; !* Прибрати зовнішні відступи *!*/
+/*  display: inline-block; !* Забезпечити адаптивність розміру *!*/
+/*  vertical-align: baseline; !* Вирівнювання по тексту *!*/
+/*}*/
