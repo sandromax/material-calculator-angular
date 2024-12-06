@@ -24,4 +24,58 @@
   <ng-template #noCalculation>
     <p>{{ 'NO_CALCULATION_PERFORMED_YET' | translate }}</p>
   </ng-template>
+
+  <div class="invoice-container">
+    <header>
+      <img src="assets/img/logo.png" alt="Logo" class="logo" />
+      <div class="client-info">
+        <p>
+          <strong>{{ 'CLIENT_NAME' | translate }}:</strong>
+          <input type="text" placeholder="{{ 'ENTER_CLIENT_NAME' | translate }}" />
+        </p>
+        <p>
+          <strong>{{ 'CLIENT_ADDRESS' | translate }}:</strong>
+          <input type="text" placeholder="{{ 'ENTER_CLIENT_ADDRESS' | translate }}" />
+        </p>
+        <p>
+          <strong>{{ 'CLIENT_PHONE' | translate }}:</strong>
+          <input type="text" placeholder="{{ 'ENTER_CLIENT_PHONE' | translate }}" />
+        </p>
+      </div>
+    </header>
+
+    <h2>
+      {{ 'INVOICE_#' | translate }}
+      <input type="text" placeholder="{{ 'ENTER_INVOICE_NUMBER' | translate }}" />
+    </h2>
+
+    <table class="invoice-table">
+      <thead>
+      <tr>
+        <th>{{ 'DESCRIPTION' | translate }}</th>
+        <th>{{ 'QUANTITY' | translate }}</th>
+<!--        <th>{{ 'UNIT_PRICE' | translate }}</th>-->
+        <th>{{ 'COST' | translate }}</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let detail of orderDetails">
+        <td>{{ detail.materialType | translate}} {{ detail.category | translate}}
+          <br>{{ detail.subcategory | translate}}
+        </td>
+        <td>{{ detail.quantity }}</td>
+<!--        <td>{{ detail.unitPrice | currency:'EUR':'symbol':'1.2-2' }}</td>-->
+<!--        <td>{{ getUnitPrice(detail) | currency:'EUR':'symbol':'1.2-2' }}</td>-->
+        <td>{{ detail.cost | currency:'EUR':'symbol':'1.2-2' }}</td>
+      </tr>
+      </tbody>
+    </table>
+
+    <footer>
+      <div class="totals">
+        <p><strong>{{ 'TOTAL_COST' | translate }}:</strong> {{ totalCost | currency:'EUR':'symbol':'1.2-2' }}</p>
+        <p><strong>{{ 'ADJUSTED_TOTAL_COST' | translate }}:</strong> {{ adjustedTotalCost | currency:'EUR':'symbol':'1.2-2' }}</p>
+      </div>
+    </footer>
+  </div>
 </div>

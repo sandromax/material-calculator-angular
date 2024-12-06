@@ -1,0 +1,111 @@
+.invoice-container {
+  width: 21cm;
+  min-height: 29.7cm;
+  padding: 2cm;
+  margin: auto;
+  border: 1px solid #ddd;
+  background: #fff;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20%;
+}
+
+.logo {
+  height: 150px;
+}
+
+.client-info {
+  text-align: right;
+}
+
+.invoice-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.invoice-table th,
+.invoice-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: center;
+}
+
+.invoice-table th {
+  background-color: #f2f2f2;
+}
+
+footer {
+  margin-top: 20px;
+  text-align: right;
+}
+
+input[type="text"] {
+  border: none; /* Remove the border */
+  outline: none; /* Remove the outline when focused */
+  font-size: inherit; /* Match the surrounding font size */
+  font-family: inherit; /* Match the surrounding font family */
+  background: transparent; /* Make the background transparent */
+  color: inherit; /* Match the surrounding text color */
+  width: 100%; /* Optional: allow the input to expand */
+}
+
+input[type="text"]::placeholder {
+  color: #aaa; /* Optional: style the placeholder text */
+  font-style: italic; /* Optional: make the placeholder italic */
+}
+
+h2 {
+  display: flex; /* Enable flexbox for aligning input and text */
+  align-items: center; /* Align input with the text vertically */
+  gap: 10px; /* Add spacing between the text and input */
+}
+
+h2 input[type="text"] {
+  border: none; /* Remove the border */
+  outline: none; /* Remove the outline */
+  background: transparent; /* Make the background transparent */
+  font-size: inherit; /* Match the font size of the surrounding h2 */
+  font-family: inherit; /* Match the font family of the h2 */
+  line-height: inherit; /* Match the line-height of the h2 */
+  color: inherit; /* Match the color of the h2 text */
+  height: auto; /* Let the height adjust automatically */
+  padding: 0; /* Remove unnecessary padding */
+  flex: 1; /* Optional: Make the input grow if needed */
+}
+
+.client-info {
+  display: flex; /* Enable flexbox */
+  flex-direction: column; /* Align elements in a row */
+  justify-content: space-between; /* Add spacing between items */
+  align-items: center; /* Align items vertically */
+  gap: 20px; /* Optional: Add space between each <p> element */
+  text-align: right; /* Ensure text alignment is consistent */
+}
+
+.invoice-container .client-info p {
+  display: flex; /* Enable flexbox for each <p> tag */
+  align-items: center; /* Vertically align <strong> and <input> */
+  gap: 10px; /* Add spacing between <strong> and <input> */
+  margin-bottom: 10px; /* Optional: Add space between <p> elements */
+}
+
+.invoice-container .client-info p strong {
+  margin-right: 5px; /* Adjust spacing between <strong> and <input> */
+}
+
+.invoice-container .client-info input {
+  flex-grow: 1; /* Allow the input to take available space */
+  border: none; /* Remove the border */
+  border-bottom: 1px solid #ccc; /* Add a subtle underline */
+  outline: none; /* Remove focus outline */
+  padding: 5px; /* Add padding for better appearance */
+  font-size: 1rem; /* Match the text size with <strong> */
+}
+

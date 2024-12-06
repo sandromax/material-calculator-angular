@@ -75,5 +75,14 @@
   "COST": "Cost",
   "NO_CALCULATION_PERFORMED_YET": "Nu s-a efectuat încă un calcul",
   "COEFFICIENT": "Coeficient",
-  "ADJUSTED_TOTAL_COST": "Preț total (după factor)"
+  "ADJUSTED_TOTAL_COST": "Preț total (după factor)",
+  "CLIENT_NAME": "Numele clientului",
+  "CLIENT_ADDRESS": "Adresa",
+  "CLIENT_PHONE": "Tel",
+  "ENTER_CLIENT_NAME": "Introduceți numele clientului",
+  "ENTER_CLIENT_ADDRESS": "Introduceți adresa clientului",
+  "ENTER_CLIENT_PHONE": "Introduceți telefonul clientului",
+  "INVOICE_#": "Factura №",
+  "ENTER_INVOICE_NUMBER": "Introduceți Factura №",
+  "DESCRIPTION": "Descriere"
 }

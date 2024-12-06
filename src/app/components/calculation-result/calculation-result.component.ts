@@ -23,6 +23,7 @@ import {TranslatePipe} from '@ngx-translate/core';
   styleUrl: './calculation-result.component.css'
 })
 export class CalculationResultComponent {
+
   order: any;
   totalCost: number = 0;
   adjustedTotalCost: number = 0;
@@ -34,7 +35,7 @@ export class CalculationResultComponent {
     private orderService: OrderService,
     private calculationService: CalculationService,
     private pdfService: PdfService,
-    private route: ActivatedRoute, // Injection ActivatedRoute
+    private route: ActivatedRoute,
   ) {}
 
   ngOnInit(): void {

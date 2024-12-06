@@ -75,5 +75,14 @@
   "COST": "Цена",
   "NO_CALCULATION_PERFORMED_YET": "Расчет пока не производился",
   "COEFFICIENT": "Коэффициент",
-  "ADJUSTED_TOTAL_COST": "Общая цена (после коэффициента)"
+  "CLIENT_NAME": "Имя клиента",
+  "CLIENT_ADDRESS": "Адрес",
+  "CLIENT_PHONE": "Тел.",
+  "ADJUSTED_TOTAL_COST": "Общая цена (после коэффициента)",
+  "ENTER_CLIENT_NAME": "Введите имя клиента",
+  "ENTER_CLIENT_ADDRESS": "Введите адрес клиента",
+  "ENTER_CLIENT_PHONE": "Введите номер телефона клиента",
+  "INVOICE_#": "Счет №",
+  "ENTER_INVOICE_NUMBER": "Введите номер счета",
+  "DESCRIPTION": "Описание"
 }
