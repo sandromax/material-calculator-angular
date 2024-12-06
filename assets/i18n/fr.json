@@ -71,9 +71,19 @@
   "Work": "Journée de travail",
   "RESULTS": "Résultats",
   "CALCULATE": "Calculer",
-  "TOTAL_COST": "",
+  "TOTAL_COST": "Coût total",
   "COST": "Coût",
   "NO_CALCULATION_PERFORMED_YET": "Aucun calcul n'a encore été effectué",
   "COEFFICIENT": "Coefficient",
-  "ADJUSTED_TOTAL_COST": "Prix \u200B\u200Btotal (après facteur)"
+  "ADJUSTED_TOTAL_COST": "Prix \u200B\u200Btotal (après facteur)",
+  "CLIENT_NAME": "Nom client",
+  "CLIENT_ADDRESS": "Adresse",
+  "CLIENT_PHONE": "Tél.",
+  "ENTER_CLIENT_NAME": "Entrez le nom du client",
+  "ENTER_CLIENT_ADDRESS": "Entrez l'adresse du client",
+  "ENTER_CLIENT_PHONE": "Entrez le téléphone du client",
+  "INVOICE_#": "Facture n°",
+  "ENTER_INVOICE_NUMBER": "Entrez la facture n°",
+  "DESCRIPTION": "Description",
+  "DOWNLOAD_PDF": "Télécharger le PDF"
 }
