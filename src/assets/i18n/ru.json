@@ -84,5 +84,6 @@
   "ENTER_CLIENT_PHONE": "Введите номер телефона клиента",
   "INVOICE_#": "Счет №",
   "ENTER_INVOICE_NUMBER": "Введите номер счета",
-  "DESCRIPTION": "Описание"
+  "DESCRIPTION": "Описание",
+  "DOWNLOAD_PDF": "Скачать PDF-файл"
 }

@@ -84,5 +84,6 @@
   "ENTER_CLIENT_PHONE": "Entrez le téléphone du client",
   "INVOICE_#": "Facture n°",
   "ENTER_INVOICE_NUMBER": "Entrez la facture n°",
-  "DESCRIPTION": "Description"
+  "DESCRIPTION": "Description",
+  "DOWNLOAD_PDF": "Télécharger le PDF"
 }

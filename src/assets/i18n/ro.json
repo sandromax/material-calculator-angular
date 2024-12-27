@@ -84,5 +84,6 @@
   "ENTER_CLIENT_PHONE": "Introduceți telefonul clientului",
   "INVOICE_#": "Factura №",
   "ENTER_INVOICE_NUMBER": "Introduceți Factura №",
-  "DESCRIPTION": "Descriere"
+  "DESCRIPTION": "Descriere",
+  "DOWNLOAD_PDF": "Descărcați PDF"
 }
