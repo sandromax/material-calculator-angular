@@ -1,92 +1,144 @@
-<h2 style="padding: 20px;" fxLayoutAlign="start center">{{'TITLE' | translate}}</h2>
+<h2 class="page-title" fxLayoutAlign="start center">{{ 'TITLE' | translate }}</h2>
 
-<form [formGroup]="orderForm" (ngSubmit)="onSubmit()" style="padding: 20px;">
+<form [formGroup]="orderForm" (ngSubmit)="updateTable()" class="order-form">
   <div formArrayName="items">
-    <div *ngFor="let item of items.controls; let i = index" [formGroupName]="i" class="item-group"
-         fxLayout="row wrap" fxLayoutGap="20px" fxLayoutAlign="start stretch" style="margin-bottom: 20px;">
+    <div *ngFor="let item of items.controls; let i = index" [formGroupName]="i" class="item-group" fxLayout="row wrap"
+         fxLayoutGap="20px" fxLayoutAlign="start stretch">
 
       <!-- Material type selection field -->
       <div fxFlex.lt-md="100%" fxFlex.gt-sm="calc(50% - 10px)">
-        <mat-form-field appearance="fill" style="width: 100%;">
-          <mat-label>{{'TYPE' | translate}}</mat-label>
+        <mat-form-field appearance="fill" class="form-field">
+          <mat-label>{{ 'TYPE' | translate }}</mat-label>
           <mat-select id="materialType-{{ i }}" formControlName="materialType">
-            <mat-option value="">{{'SELECT_TYPE' | translate}}</mat-option>
-            <mat-option *ngFor="let type of materialsData?.types" [value]="type.type">{{ type.type | translate }}</mat-option>
+            <mat-option value="">{{ 'SELECT_TYPE' | translate }}</mat-option>
+            <mat-option *ngFor="let type of materialsData?.types" [value]="type.type">{{ type.type | translate }}
+            </mat-option>
           </mat-select>
           <mat-error *ngIf="item.get('materialType')?.hasError('required')">
-            {{'TYPE_IS_REQUIRED' | translate}}
+            {{ 'TYPE_IS_REQUIRED' | translate }}
           </mat-error>
         </mat-form-field>
       </div>
 
       <!-- Category selection field -->
       <div fxFlex.lt-md="100%" fxFlex.gt-sm="calc(50% - 10px)">
-        <mat-form-field appearance="fill" style="width: 100%;">
-          <mat-label>{{'CATEGORY' | translate}}</mat-label>
+        <mat-form-field appearance="fill" class="form-field">
+          <mat-label>{{ 'CATEGORY' | translate }}</mat-label>
           <mat-select id="category-{{ i }}" formControlName="category">
-            <mat-option value="">{{'SELECT_CATEGORY' | translate}}</mat-option>
+            <mat-option value="">{{ 'SELECT_CATEGORY' | translate }}</mat-option>
             <mat-option *ngFor="let category of item.get('availableCategories')?.value" [value]="category.name">
               {{ category.name | translate }}
             </mat-option>
           </mat-select>
           <mat-error *ngIf="item.get('category')?.hasError('required')">
-            {{'CATEGORY_IS_REQUIRED' | translate}}
+            {{ 'CATEGORY_IS_REQUIRED' | translate }}
           </mat-error>
         </mat-form-field>
       </div>
 
       <!-- Subcategory selection field -->
       <div fxFlex.lt-md="100%" fxFlex.gt-sm="calc(50% - 10px)">
-        <mat-form-field appearance="fill" style="width: 100%;">
-          <mat-label>{{'SUBCATEGORY' | translate}}</mat-label>
+        <mat-form-field appearance="fill" class="form-field">
+          <mat-label>{{ 'SUBCATEGORY' | translate }}</mat-label>
           <mat-select id="subcategory-{{ i }}" formControlName="subcategory">
-            <mat-option value="">{{'SELECT_SUBCATEGORY' | translate}}</mat-option>
-            <mat-option *ngFor="let subcategory of item.get('availableSubcategories')?.value" [value]="subcategory.name">
+            <mat-option value="">{{ 'SELECT_SUBCATEGORY' | translate }}</mat-option>
+            <mat-option *ngFor="let subcategory of item.get('availableSubcategories')?.value"
+                        [value]="subcategory.name">
               {{ subcategory.name | translate }}
             </mat-option>
           </mat-select>
           <mat-error *ngIf="item.get('subcategory')?.hasError('required')">
-            {{'SUBCATEGORY_IS_REQUIRED' | translate}}
+            {{ 'SUBCATEGORY_IS_REQUIRED' | translate }}
           </mat-error>
         </mat-form-field>
       </div>
 
       <!-- Quantity field -->
       <div fxFlex.lt-md="100%" fxFlex.gt-sm="calc(50% - 10px)">
-        <mat-form-field appearance="fill" style="width: 100%;">
-          <mat-label>{{'QUANTITY' | translate}}</mat-label>
-          <input matInput id="quantity-{{ i }}" type="number" formControlName="quantity" placeholder="{{'SPECIFY_THE_QUANTITY' | translate}}" min="1" />
+        <mat-form-field appearance="fill" class="form-field">
+          <mat-label>{{ 'QUANTITY' | translate }}</mat-label>
+          <input matInput id="quantity-{{ i }}" type="number" formControlName="quantity"
+                 placeholder="{{'SPECIFY_THE_QUANTITY' | translate}}" min="1"/>
           <mat-error *ngIf="item.get('quantity')?.hasError('required')">
-            {{'QUANTITY_IS_REQUIRED' | translate}}
+            {{ 'QUANTITY_IS_REQUIRED' | translate }}
           </mat-error>
           <mat-error *ngIf="item.get('quantity')?.hasError('min')">
-            {{'MINIMUM_QUANTITY_IS_1' | translate}}
+            {{ 'MINIMUM_QUANTITY_IS_1' | translate }}
           </mat-error>
         </mat-form-field>
       </div>
     </div>
   </div>
 
-  <div fxLayout="row" fxLayoutAlign="end center" fxLayoutGap="20px" fxFlex="100%" style="margin-top: 20px;">
-
-    <mat-form-field appearance="fill" style="min-width: 200px;">
+  <!-- Buttons -->
+  <div fxLayout="row" fxLayoutAlign="end center" fxLayoutGap="20px" class="action-buttons">
+    <mat-form-field appearance="fill" class="coefficient-selector">
       <mat-label>{{ 'COEFFICIENT' | translate }}</mat-label>
       <mat-select formControlName="coefficient" required>
         <mat-option *ngFor="let coeff of coefficients" [value]="coeff">{{ coeff }}</mat-option>
       </mat-select>
     </mat-form-field>
 
-    <button mat-raised-button color="warn" type="button" style="margin-right: 10px;" (click)="removeItem(items.length - 1)">
+    <button mat-raised-button color="warn" type="button" (click)="removeItem()">
       {{ 'REMOVE' | translate }}
     </button>
-    <button mat-raised-button color="primary" type="button" style="margin-right: 10px;" (click)="addItem()">
+    <button mat-raised-button color="primary" type="button" (click)="addItem()">
       {{ 'ADD_ITEM' | translate }}
     </button>
-    <button mat-raised-button color="accent" type="submit" [disabled]="orderForm.invalid">
-      {{ 'SUBMIT' | translate }}
+    <button mat-raised-button color="accent" type="button" (click)="updateTable()">
+      {{ 'UPDATE_TABLE' | translate }}
     </button>
   </div>
 </form>
+
+<!-- Table -->
+<div *ngIf="orderDetails.length > 0" class="invoice-container">
+  <header>
+    <img src="assets/img/logo.png" alt="Logo" class="logo"/>
+    <div class="client-info">
+      <p>
+        <strong>{{ 'CLIENT_NAME' | translate }}:</strong>
+        <input type="text" placeholder="{{ 'ENTER_CLIENT_NAME' | translate }}"/>
+      </p>
+      <p>
+        <strong>{{ 'CLIENT_ADDRESS' | translate }}:</strong>
+        <input type="text" placeholder="{{ 'ENTER_CLIENT_ADDRESS' | translate }}"/>
+      </p>
+      <p>
+        <strong>{{ 'CLIENT_PHONE' | translate }}:</strong>
+        <input type="text" placeholder="{{ 'ENTER_CLIENT_PHONE' | translate }}"/>
+      </p>
+    </div>
+  </header>
+
+  <table class="invoice-table">
+    <thead>
+    <tr>
+      <th>{{ 'DESCRIPTION' | translate }}</th>
+      <th>{{ 'QUANTITY' | translate }}</th>
+      <th>{{ 'COST' | translate }}</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let detail of orderDetails">
+      <td>{{ detail.materialType | translate }} {{ detail.category | translate }}
+        <br>{{ detail.subcategory | translate }}
+      </td>
+      <td>{{ detail.quantity }}</td>
+      <td>{{ detail.cost | currency:'EUR':'symbol':'1.2-2' }}</td>
+    </tr>
+    </tbody>
+  </table>
+
+  <footer class="totals">
+    <p><strong>{{ 'TOTAL_COST' | translate }}:</strong> {{ totalCost | currency:'EUR':'symbol':'1.2-2' }}</p>
+    <p><strong>{{ 'ADJUSTED_TOTAL_COST' | translate }}
+      :</strong> {{ totalWithCoefficient | currency:'EUR':'symbol':'1.2-2' }}</p>
+  </footer>
+</div>
+<div class="pdf-download">
+  <button mat-raised-button color="primary" (click)="downloadPDF()">{{ "DOWNLOAD_PDF" | translate }}</button>
+</div>
 
 
 <!--<h2 style="padding: 20px;" fxLayoutAlign="start center">{{'TITLE' | translate}}</h2>-->
@@ -97,7 +149,7 @@
 <!--         fxLayout="row wrap" fxLayoutGap="20px" fxLayoutAlign="start stretch" style="margin-bottom: 20px;">-->
 
 <!--      &lt;!&ndash; Material type selection field &ndash;&gt;-->
-<!--      <div fxFlex="1 1 calc(50% - 20px)" fxFlex.lt-sm="100%">-->
+<!--      <div fxFlex.lt-md="100%" fxFlex.gt-sm="calc(50% - 10px)">-->
 <!--        <mat-form-field appearance="fill" style="width: 100%;">-->
 <!--          <mat-label>{{'TYPE' | translate}}</mat-label>-->
 <!--          <mat-select id="materialType-{{ i }}" formControlName="materialType">-->
@@ -111,7 +163,7 @@
 <!--      </div>-->
 
 <!--      &lt;!&ndash; Category selection field &ndash;&gt;-->
-<!--      <div fxFlex="1 1 calc(50% - 20px)" fxFlex.lt-sm="100%">-->
+<!--      <div fxFlex.lt-md="100%" fxFlex.gt-sm="calc(50% - 10px)">-->
 <!--        <mat-form-field appearance="fill" style="width: 100%;">-->
 <!--          <mat-label>{{'CATEGORY' | translate}}</mat-label>-->
 <!--          <mat-select id="category-{{ i }}" formControlName="category">-->
@@ -127,7 +179,7 @@
 <!--      </div>-->
 
 <!--      &lt;!&ndash; Subcategory selection field &ndash;&gt;-->
-<!--      <div fxFlex="1 1 calc(50% - 20px)" fxFlex.lt-sm="100%">-->
+<!--      <div fxFlex.lt-md="100%" fxFlex.gt-sm="calc(50% - 10px)">-->
 <!--        <mat-form-field appearance="fill" style="width: 100%;">-->
 <!--          <mat-label>{{'SUBCATEGORY' | translate}}</mat-label>-->
 <!--          <mat-select id="subcategory-{{ i }}" formControlName="subcategory">-->
@@ -143,7 +195,7 @@
 <!--      </div>-->
 
 <!--      &lt;!&ndash; Quantity field &ndash;&gt;-->
-<!--      <div fxFlex="1 1 calc(50% - 20px)" fxFlex.lt-sm="100%">-->
+<!--      <div fxFlex.lt-md="100%" fxFlex.gt-sm="calc(50% - 10px)">-->
 <!--        <mat-form-field appearance="fill" style="width: 100%;">-->
 <!--          <mat-label>{{'QUANTITY' | translate}}</mat-label>-->
 <!--          <input matInput id="quantity-{{ i }}" type="number" formControlName="quantity" placeholder="{{'SPECIFY_THE_QUANTITY' | translate}}" min="1" />-->
@@ -159,6 +211,14 @@
 <!--  </div>-->
 
 <!--  <div fxLayout="row" fxLayoutAlign="end center" fxLayoutGap="20px" fxFlex="100%" style="margin-top: 20px;">-->
+
+<!--    <mat-form-field appearance="fill" style="min-width: 200px;">-->
+<!--      <mat-label>{{ 'COEFFICIENT' | translate }}</mat-label>-->
+<!--      <mat-select formControlName="coefficient" required>-->
+<!--        <mat-option *ngFor="let coeff of coefficients" [value]="coeff">{{ coeff }}</mat-option>-->
+<!--      </mat-select>-->
+<!--    </mat-form-field>-->
+
 <!--    <button mat-raised-button color="warn" type="button" style="margin-right: 10px;" (click)="removeItem(items.length - 1)">-->
 <!--      {{ 'REMOVE' | translate }}-->
 <!--    </button>-->
@@ -171,75 +231,88 @@
 <!--  </div>-->
 <!--</form>-->
 
+<!--<div fxLayout="column" fxLayoutAlign="center stretch" fxLayoutGap="20px">-->
 
-<!--&lt;!&ndash;<h2 style="padding: 80px;" fxLayoutAlign="start center">{{'TITLE' | translate}}</h2>&ndash;&gt;-->
+<!--  <div class="invoice-container">-->
+<!--    <header>-->
+<!--      <img src="assets/img/logo.png" alt="Logo" class="logo" />-->
+<!--      <div class="client-info">-->
+<!--        <p>-->
+<!--          <strong>{{ 'CLIENT_NAME' | translate }}:</strong>-->
+<!--          <input type="text" placeholder="{{ 'ENTER_CLIENT_NAME' | translate }}" />-->
+<!--        </p>-->
+<!--        <p>-->
+<!--          <strong>{{ 'CLIENT_ADDRESS' | translate }}:</strong>-->
+<!--          <input type="text" placeholder="{{ 'ENTER_CLIENT_ADDRESS' | translate }}" />-->
+<!--        </p>-->
+<!--        <p>-->
+<!--          <strong>{{ 'CLIENT_PHONE' | translate }}:</strong>-->
+<!--          <input type="text" placeholder="{{ 'ENTER_CLIENT_PHONE' | translate }}" />-->
+<!--        </p>-->
+<!--      </div>-->
+<!--    </header>-->
 
-<!--&lt;!&ndash;<form [formGroup]="orderForm" (ngSubmit)="onSubmit()" style="padding: 0px 200px 200px 200px;">&ndash;&gt;-->
-<!--&lt;!&ndash;  <div formArrayName="items">&ndash;&gt;-->
-<!--&lt;!&ndash;    <div *ngFor="let item of items.controls; let i = index" [formGroupName]="i" class="item-group"&ndash;&gt;-->
-<!--&lt;!&ndash;         fxLayout="row wrap" fxLayoutGap="20px" fxLayoutAlign="start center" style="margin-bottom: 20px;">&ndash;&gt;-->
+<!--&lt;!&ndash;    <h2>&ndash;&gt;-->
+<!--&lt;!&ndash;      {{ 'INVOICE_#' | translate }}&ndash;&gt;-->
+<!--&lt;!&ndash;      <input type="text" placeholder="{{ 'ENTER_INVOICE_NUMBER' | translate }}" />&ndash;&gt;-->
+<!--&lt;!&ndash;    </h2>&ndash;&gt;-->
 
-<!--&lt;!&ndash;      &lt;!&ndash; Material type selection field &ndash;&gt;&ndash;&gt;-->
-<!--&lt;!&ndash;      <div fxFlex="1 1 250px" style="min-width: 250px;">&ndash;&gt;-->
-<!--&lt;!&ndash;        <mat-form-field appearance="fill" style="width: 100%;">&ndash;&gt;-->
-<!--&lt;!&ndash;          <mat-label>{{'TYPE' | translate}}</mat-label>&ndash;&gt;-->
-<!--&lt;!&ndash;          <mat-select id="materialType-{{ i }}" formControlName="materialType">&ndash;&gt;-->
-<!--&lt;!&ndash;            <mat-option value="">{{'SELECT_TYPE' | translate}}</mat-option>&ndash;&gt;-->
-<!--&lt;!&ndash;            <mat-option *ngFor="let type of materialsData?.types" [value]="type.type">{{ type.type | translate}}</mat-option>&ndash;&gt;-->
-<!--&lt;!&ndash;          </mat-select>&ndash;&gt;-->
-<!--&lt;!&ndash;          <mat-error *ngIf="item.get('materialType')?.hasError('required')">&ndash;&gt;-->
-<!--&lt;!&ndash;            Material Type is required&ndash;&gt;-->
-<!--&lt;!&ndash;          </mat-error>&ndash;&gt;-->
-<!--&lt;!&ndash;        </mat-form-field>&ndash;&gt;-->
-<!--&lt;!&ndash;      </div>&ndash;&gt;-->
+<!--    <table class="invoice-table">-->
+<!--      <thead>-->
+<!--      <tr>-->
+<!--        <th>{{ 'DESCRIPTION' | translate }}</th>-->
+<!--        <th>{{ 'QUANTITY' | translate }}</th>-->
+<!--        &lt;!&ndash;        <th>{{ 'UNIT_PRICE' | translate }}</th>&ndash;&gt;-->
+<!--        <th>{{ 'COST' | translate }}</th>-->
+<!--      </tr>-->
+<!--      </thead>-->
+<!--      <tbody>-->
+<!--      <tr *ngFor="let detail of orderDetails">-->
+<!--        <td>{{ detail.materialType | translate}} {{ detail.category | translate}}-->
+<!--          <br>{{ detail.subcategory | translate}}-->
+<!--        </td>-->
+<!--        <td>{{ detail.quantity }}</td>-->
+<!--        &lt;!&ndash;        <td>{{ detail.unitPrice | currency:'EUR':'symbol':'1.2-2' }}</td>&ndash;&gt;-->
+<!--        &lt;!&ndash;        <td>{{ getUnitPrice(detail) | currency:'EUR':'symbol':'1.2-2' }}</td>&ndash;&gt;-->
+<!--        <td>{{ detail.cost | currency:'EUR':'symbol':'1.2-2' }}</td>-->
+<!--      </tr>-->
+<!--      </tbody>-->
+<!--    </table>-->
 
-<!--&lt;!&ndash;      &lt;!&ndash; Category selection field &ndash;&gt;&ndash;&gt;-->
-<!--&lt;!&ndash;      <div fxFlex="1 1 250px" style="min-width: 250px;">&ndash;&gt;-->
-<!--&lt;!&ndash;        <mat-form-field appearance="fill" style="width: 100%;">&ndash;&gt;-->
-<!--&lt;!&ndash;          <mat-label>{{'CATEGORY' | translate}}</mat-label>&ndash;&gt;-->
-<!--&lt;!&ndash;          <mat-select id="category-{{ i }}" formControlName="category">&ndash;&gt;-->
-<!--&lt;!&ndash;            <mat-option value="">{{'SELECT_CATEGORY' | translate}}</mat-option>&ndash;&gt;-->
-<!--&lt;!&ndash;            <mat-option *ngFor="let category of item.get('availableCategories')?.value" [value]="category.name">{{ category.name | translate}}</mat-option>&ndash;&gt;-->
-<!--&lt;!&ndash;          </mat-select>&ndash;&gt;-->
-<!--&lt;!&ndash;          <mat-error *ngIf="item.get('category')?.hasError('required')">&ndash;&gt;-->
-<!--&lt;!&ndash;            Category is required&ndash;&gt;-->
-<!--&lt;!&ndash;          </mat-error>&ndash;&gt;-->
-<!--&lt;!&ndash;        </mat-form-field>&ndash;&gt;-->
-<!--&lt;!&ndash;      </div>&ndash;&gt;-->
+<!--    <footer>-->
+<!--      <div class="totals">-->
+<!--        <p><strong>{{ 'TOTAL_COST' | translate }}:</strong> {{ totalCost | currency:'EUR':'symbol':'1.2-2' }}</p>-->
+<!--        <p><strong>{{ 'ADJUSTED_TOTAL_COST' | translate }}:</strong> {{ adjustedTotalCost | currency:'EUR':'symbol':'1.2-2' }}</p>-->
+<!--      </div>-->
+<!--    </footer>-->
+<!--  </div>-->
 
-<!--&lt;!&ndash;      &lt;!&ndash; Subcategory selection field &ndash;&gt;&ndash;&gt;-->
-<!--&lt;!&ndash;      <div fxFlex="1 1 250px" style="min-width: 250px;">&ndash;&gt;-->
-<!--&lt;!&ndash;        <mat-form-field appearance="fill" style="width: 100%;">&ndash;&gt;-->
-<!--&lt;!&ndash;          <mat-label>{{'SUBCATEGORY' | translate}}</mat-label>&ndash;&gt;-->
-<!--&lt;!&ndash;          <mat-select id="subcategory-{{ i }}" formControlName="subcategory">&ndash;&gt;-->
-<!--&lt;!&ndash;            <mat-option value="">{{'SELECT_SUBCATEGORY' | translate}}</mat-option>&ndash;&gt;-->
-<!--&lt;!&ndash;            <mat-option *ngFor="let subcategory of item.get('availableSubcategories')?.value" [value]="subcategory.name">{{ subcategory.name | translate}}</mat-option>&ndash;&gt;-->
-<!--&lt;!&ndash;          </mat-select>&ndash;&gt;-->
-<!--&lt;!&ndash;          <mat-error *ngIf="item.get('subcategory')?.hasError('required')">&ndash;&gt;-->
-<!--&lt;!&ndash;            Subcategory is required&ndash;&gt;-->
-<!--&lt;!&ndash;          </mat-error>&ndash;&gt;-->
-<!--&lt;!&ndash;        </mat-form-field>&ndash;&gt;-->
-<!--&lt;!&ndash;      </div>&ndash;&gt;-->
-
-<!--&lt;!&ndash;      &lt;!&ndash; Quantity field &ndash;&gt;&ndash;&gt;-->
-<!--&lt;!&ndash;      <div fxFlex="1 1 150px" style="min-width: 150px;">&ndash;&gt;-->
-<!--&lt;!&ndash;        <mat-form-field appearance="fill" style="width: 100%;">&ndash;&gt;-->
-<!--&lt;!&ndash;          <mat-label>{{'QUANTITY' | translate}}</mat-label>&ndash;&gt;-->
-<!--&lt;!&ndash;          <input matInput id="quantity-{{ i }}" type="number" formControlName="quantity" placeholder="Enter quantity" min="1" />&ndash;&gt;-->
-<!--&lt;!&ndash;          <mat-error *ngIf="item.get('quantity')?.hasError('required')">&ndash;&gt;-->
-<!--&lt;!&ndash;            {{'Quantity_is_required' | translate}}&ndash;&gt;-->
-<!--&lt;!&ndash;          </mat-error>&ndash;&gt;-->
-<!--&lt;!&ndash;          <mat-error *ngIf="item.get('quantity')?.hasError('min')">&ndash;&gt;-->
-<!--&lt;!&ndash;            {{'Minimum_quantity_is_1' | translate}}&ndash;&gt;-->
-<!--&lt;!&ndash;          </mat-error>&ndash;&gt;-->
-<!--&lt;!&ndash;        </mat-form-field>&ndash;&gt;-->
-<!--&lt;!&ndash;      </div>&ndash;&gt;-->
+<!--&lt;!&ndash;  &lt;!&ndash; Invoice Table &ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;  <div *ngIf="orderDetails.length > 0" class="invoice-container">&ndash;&gt;-->
+<!--&lt;!&ndash;    <h2>Invoice</h2>&ndash;&gt;-->
+<!--&lt;!&ndash;    <table class="invoice-table">&ndash;&gt;-->
+<!--&lt;!&ndash;      <thead>&ndash;&gt;-->
+<!--&lt;!&ndash;      <tr>&ndash;&gt;-->
+<!--&lt;!&ndash;        <th>Description</th>&ndash;&gt;-->
+<!--&lt;!&ndash;        <th>Quantity</th>&ndash;&gt;-->
+<!--&lt;!&ndash;        <th>Cost</th>&ndash;&gt;-->
+<!--&lt;!&ndash;      </tr>&ndash;&gt;-->
+<!--&lt;!&ndash;      </thead>&ndash;&gt;-->
+<!--&lt;!&ndash;      <tbody>&ndash;&gt;-->
+<!--&lt;!&ndash;      <tr *ngFor="let detail of orderDetails">&ndash;&gt;-->
+<!--&lt;!&ndash;        <td>{{ detail.materialType }} {{ detail.category }} {{ detail.subcategory }}</td>&ndash;&gt;-->
+<!--&lt;!&ndash;        <td>{{ detail.quantity }}</td>&ndash;&gt;-->
+<!--&lt;!&ndash;        <td>{{ detail.cost | currency }}</td>&ndash;&gt;-->
+<!--&lt;!&ndash;      </tr>&ndash;&gt;-->
+<!--&lt;!&ndash;      </tbody>&ndash;&gt;-->
+<!--&lt;!&ndash;    </table>&ndash;&gt;-->
+<!--&lt;!&ndash;    <div>&ndash;&gt;-->
+<!--&lt;!&ndash;      <p><strong>Total Cost:</strong> {{ totalCost | currency }}</p>&ndash;&gt;-->
 <!--&lt;!&ndash;    </div>&ndash;&gt;-->
+<!--&lt;!&ndash;    <button mat-raised-button color="primary" (click)="downloadPDF()">Download PDF</button>&ndash;&gt;-->
 <!--&lt;!&ndash;  </div>&ndash;&gt;-->
 
-<!--&lt;!&ndash;  <div fxLayout="row" fxLayoutAlign="end center" fxLayoutGap="10px" fxFlex="100%" style="margin-top: 20px;">&ndash;&gt;-->
-<!--&lt;!&ndash;    <button mat-raised-button color="warn" type="button" (click)="removeItem(items.length - 1)">{{ 'REMOVE' | translate }}</button>&ndash;&gt;-->
-<!--&lt;!&ndash;    <button mat-raised-button color="primary" type="button" (click)="addItem()">{{ 'ADD_ITEM' | translate }}</button>&ndash;&gt;-->
-<!--&lt;!&ndash;    <button mat-raised-button color="accent" type="submit" [disabled]="orderForm.invalid">{{ 'SUBMIT' | translate }}</button>&ndash;&gt;-->
-<!--&lt;!&ndash;  </div>&ndash;&gt;-->
-<!--&lt;!&ndash;</form>&ndash;&gt;-->
+<!--  <div>-->
+<!--    <button mat-raised-button color="primary" (click)="downloadPDF()">{{ "DOWNLOAD_PDF" | translate }}</button>-->
+<!--  </div>-->
+<!--</div>-->

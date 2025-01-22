@@ -9,7 +9,6 @@ export class CalculationService {
   private materialsData: any;
 
   constructor(private materialsService: MaterialsService) {
-    // Load material data when creating the service.
     this.materialsService.getMaterials().subscribe((data) => {
       this.materialsData = data;
     });
@@ -36,7 +35,7 @@ export class CalculationService {
     return { totalCost, details };
   }
 
-  private calculateItemCost(item: any): number {
+  calculateItemCost(item: any): number {
     const { materialType, category, subcategory, quantity } = item;
 
     // Handling of special types (Transport, Work).

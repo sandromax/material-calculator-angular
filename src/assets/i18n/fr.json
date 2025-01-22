@@ -85,5 +85,6 @@
   "INVOICE_#": "Facture n°",
   "ENTER_INVOICE_NUMBER": "Entrez la facture n°",
   "DESCRIPTION": "Description",
-  "DOWNLOAD_PDF": "Télécharger le PDF"
+  "DOWNLOAD_PDF": "Télécharger le PDF",
+  "UPDATE_TABLE": "Tableau de mise à jour"
 }

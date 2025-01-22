@@ -85,5 +85,7 @@
   "INVOICE_#": "Factura №",
   "ENTER_INVOICE_NUMBER": "Introduceți Factura №",
   "DESCRIPTION": "Descriere",
-  "DOWNLOAD_PDF": "Descărcați PDF"
+  "DOWNLOAD_PDF": "Descărcați PDF",
+  "UPDATE_TABLE": "Tabelul de actualizare"
+
 }

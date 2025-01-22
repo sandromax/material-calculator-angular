@@ -1,0 +1,120 @@
+/* Загальні стилі для сторінки */
+.page-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.order-form {
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.form-field {
+  width: 100%;
+}
+
+.action-buttons {
+  margin-top: 20px;
+}
+
+.coefficient-selector {
+  min-width: 200px;
+}
+
+/* Таблиця рахунку */
+.invoice-container {
+  margin-top: 30px;
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  width: 210mm; /* Формат A4 ширина */
+  min-height: 297mm; /* Формат A4 висота */
+  box-sizing: border-box;
+}
+
+.invoice-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+.invoice-table th,
+.invoice-table td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: left;
+}
+
+.invoice-table th {
+  background-color: #f4f4f4;
+  font-weight: bold;
+}
+
+.totals {
+  text-align: right;
+}
+
+.totals p {
+  margin: 5px 0;
+}
+
+.pdf-download {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.pdf-download button {
+  font-size: 16px;
+  padding: 10px 20px;
+}
+
+/*header*/
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  height: 30vh; /* Хедер займає 30% висоти екрану */
+  width: 100%; /* Повна ширина контейнера */
+  padding: 20px;
+  box-sizing: border-box;
+  background-color: #f5f5f5; /* Світло-сірий фон */
+  border-bottom: 1px solid #ddd; /* Легка нижня рамка */
+}
+
+header .logo {
+  width: 150px;
+  height: 150px;
+  object-fit: contain; /* Зберігає пропорції логотипа */
+}
+
+header .client-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: flex-start;
+  flex-grow: 1;
+  margin-left: 20px; /* Відступ між логотипом і інформацією */
+}
+
+header .client-info p {
+  margin: 5px 0; /* Невеликий відступ між рядками */
+  font-size: 14px;
+}
+
+header .client-info input {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 5px;
+  font-size: 14px;
+  width: 300px; /* Ширина поля вводу */
+  max-width: 100%;
+}
+
+header .client-info strong {
+  display: inline-block;
+  width: 100px; /* Вирівнює лейбли по правому краю */
+}
