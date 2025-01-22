@@ -85,5 +85,6 @@
   "INVOICE_#": "Счет №",
   "ENTER_INVOICE_NUMBER": "Введите номер счета",
   "DESCRIPTION": "Описание",
-  "DOWNLOAD_PDF": "Скачать PDF-файл"
+  "DOWNLOAD_PDF": "Скачать PDF-файл",
+  "UPDATE_TABLE": "Обновить таблицу"
 }
